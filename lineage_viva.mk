@@ -15,6 +15,11 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from viva device
 $(call inherit-product, device/xiaomi/viva/device.mk)
 
+# add-ons
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_SUPPORTS_SOUND_ACCESSIBILITY := false
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+
 PRODUCT_DEVICE := viva
 PRODUCT_NAME := lineage_viva
 PRODUCT_BRAND := Redmi

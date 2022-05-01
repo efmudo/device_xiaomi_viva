@@ -154,6 +154,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*.prop,$(LOCAL_PATH)/configs/boardid/,$(TARGET_COPY_OUT_VENDOR)/etc/boardid_props)
 
+# GCam
+PRODUCT_PACKAGES += \
+    GoogleCameraGo
+
 # Device overlays
 PRODUCT_PACKAGES += \
     FrameworksResOverlayViva \
