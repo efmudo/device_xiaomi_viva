@@ -58,12 +58,11 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_TARGET_VNDK_VERSION := 30
 PRODUCT_SHIPPING_API_LEVEL := 30
 
-# Bootctrl
+# Boot control HAL
 PRODUCT_PACKAGES += \
-    bootctrl.default \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2.recovery \
-    android.hardware.boot@1.2-service
+    android.hardware.boot@1.2-service \
+    android.hardware.boot@1.2-mtkimpl:64 \
+    android.hardware.boot@1.2-mtkimpl.recovery
 
 # DT2W
 PRODUCT_PACKAGES += \
@@ -124,11 +123,6 @@ PRODUCT_PACKAGES += \
     PresencePolling \
     RcsService
 
-# Keylayout
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-goodix.kl
-
 # Light
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.viva
@@ -158,36 +152,25 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     GoogleCameraGo
 
-# Device overlays
-PRODUCT_PACKAGES += \
-    FrameworksResOverlayViva \
-    SettingsResOverlayViva \
-    SystemUIOverlayViva \
-    TelephonyOverlayViva \
-    CarrierConfigOverlayViva \
-    TetheringOverlayViva \
-    WifiOverlayViva
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
 
-# Lineage-Specific Overlays
-PRODUCT_PACKAGES += \
-    ApertureOverlayViva
-
-# FSTab
+# Rootdir
 PRODUCT_PACKAGES += \
     fstab.mt6781 \
-    fstab.mt6781_ramdisk
-
-# Init
-PRODUCT_PACKAGES += \
-    init.cgroup.rc \
-    init.connectivity.rc \
     init.modem.rc \
-    init.nxpnfc.rc \
-    init.mt6781.rc \
-    init.mt6781.usb.rc \
-    init.project.rc \
+    init.connectivity.rc \
+    init.aee.rc \
     init.sensor_1_0.rc \
-    ueventd.mt6781.rc
+    init.mt6781.usb.rc \
+    init.mt6781.rc \
+    init.ago.rc \
+    init.nxpnfc.rc \
+    init.project.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.mt6781.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.mt6781.rc
 
 # Power/Perf configs
 PRODUCT_COPY_FILES += \
@@ -195,8 +178,8 @@ PRODUCT_COPY_FILES += \
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-goodix.kl
+    $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-fpc.kl \
+    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-goodix.kl
 
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
