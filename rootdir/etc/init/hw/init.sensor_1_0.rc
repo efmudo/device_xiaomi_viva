@@ -72,7 +72,7 @@ on post-fs-data
     chmod 0660 /sys/class/sensor/m_mag_misc/magflush
     chmod 0660 /sys/class/sensor/m_mag_misc/magcali
     chmod 0660 /sys/class/sensor/m_mag_misc/maglibinfo
-    chmod 0660 /sys/class/sensor/m_mag_misc/magnfcinfo
+     chmod 0660 /sys/class/sensor/m_mag_misc/magnfcinfo
     chown system system /sys/class/sensor/m_mag_misc/magactive
     chown system system /sys/class/sensor/m_mag_misc/magdelay
     chown system system /sys/class/sensor/m_mag_misc/magbatch
