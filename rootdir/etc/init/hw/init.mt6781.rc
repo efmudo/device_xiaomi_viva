@@ -803,8 +803,6 @@ on boot
     chmod 660 /dev/ttyGS1
     chown system radio /dev/ttyGS1
 
-    stop console
-
 # Stop bootprof
 on property:sys.boot_completed=1
     write /proc/bootprof "0"
@@ -870,3 +868,6 @@ service mi_thermald /system/vendor/bin/mi_thermald
     group system
     seclabel u:r:mi_thermald:s0
 
+on post-fs-data
+    # Services
+    stop console

@@ -15,7 +15,7 @@
  */
 
 android_app {
-    name: "DT2W-Service-mi6781",
+    name: "DT2W-Service-viva",
 
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
@@ -29,13 +29,13 @@ android_app {
     },
 
     required: [
-        "privapp-permissions_co.potatoproject.dt2w.mi6781"
+        "privapp-permissions_co.potatoproject.dt2w.viva"
     ]
 }
 
 prebuilt_etc {
-    name: "privapp-permissions_co.potatoproject.dt2w.mi6781",
+    name: "privapp-permissions_co.potatoproject.dt2w.viva",
     sub_dir: "permissions",
-    src: "privapp-permissions_co.potatoproject.dt2w.mi6781.xml",
+    src: "privapp-permissions_co.potatoproject.dt2w.viva.xml",
     filename_from_src: true,
 }

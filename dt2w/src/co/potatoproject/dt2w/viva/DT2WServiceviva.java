@@ -1,4 +1,4 @@
-package co.potatoproject.dt2w.mi6781;
+package co.potatoproject.dt2w.viva;
 
 import android.app.Service;
 import android.content.ContentResolver;
@@ -13,8 +13,8 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings.Secure;
 
-public class DT2WServicemi6781 extends Service {
-    private static final String TAG = "DT2WServicemi6781";
+public class DT2WServiceviva extends Service {
+    private static final String TAG = "DT2WServiceviva";
     private Context mContext;
     private Handler mHandler;
     private CustomSettingsObserver mCustomSettingsObserver;
@@ -53,7 +53,7 @@ public class DT2WServicemi6781 extends Service {
         void update() {
             int dt2wValue = Secure.getInt(mContext.getContentResolver(), Secure.DOUBLE_TAP_TO_WAKE, 0);
             boolean dt2wEnabled = dt2wValue == 1;
-            SystemProperties.set("persist.sys.mi6781.dt2w", dt2wEnabled ? "1" : "0");
+            SystemProperties.set("persist.sys.viva.dt2w", dt2wEnabled ? "1" : "0");
         }
 
         @Override
